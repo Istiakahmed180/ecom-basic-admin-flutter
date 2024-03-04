@@ -1,3 +1,4 @@
+import 'package:ecom_basic_admin/firebase_options.dart';
 import 'package:ecom_basic_admin/pages/add_product_page.dart';
 import 'package:ecom_basic_admin/pages/category_page.dart';
 import 'package:ecom_basic_admin/pages/dashboard_page.dart';
@@ -11,9 +12,14 @@ import 'package:ecom_basic_admin/pages/report_page.dart';
 import 'package:ecom_basic_admin/pages/settings_page.dart';
 import 'package:ecom_basic_admin/pages/user_list_page.dart';
 import 'package:ecom_basic_admin/pages/view_product_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
 
